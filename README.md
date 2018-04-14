@@ -1,7 +1,7 @@
- # MARAUDER&#39;S MAP
+# MARAUDER&#39;S MAP
    (Mischief Managed)
 
-# PROBLEM STATEMENT
+## PROBLEM STATEMENT
 Marauder&#39;s Map is a security surveillance system which uses image recognition to identify and track unauthorized personnel and stray animals around the college campus. It is built mainly to aid the college administration.
 
 - How is it useful for the students?
@@ -17,9 +17,9 @@ Marauder&#39;s Map is a security surveillance system which uses image recognitio
 - Why is this better than existing/other solutions?  
   Currently, in the college, there is no such known application that offers similar solutions.
 
-# TECHNOLOGY
+## TECHNOLOGY
 
-## Language / Framework
+### Language / Framework
 Currently, the prototype uses:  
 1. Java Swing for Client-side GUI
 2. Python used to implement facial image recognition backend processing
@@ -34,15 +34,15 @@ For the actual application development,
 4. The post processed images are archived for 30 days on the server and then deleted. This is preferred over storing the images in the shared drive for 30 days.
 5. Database could be used over csv file to store the unknown people log entries. Subsequently, a log viewing application can be developed which shows the timestamp and the image of the unknown person.
 
-## Storage
+### Storage
 
 1. The Marauder&#39;s Map application does not use any database.
 2. The images are captured from the live feeds of the cameras placed around the campus. These images are saved to a shared folder on the security admin system. This shared folder is accessible only by the admin, thus securing its contents.
 3. The image recognition algorithm takes the images from this folder, processes it and stores it back there. Whenever any unknown person is identified, an entry of [Timestamp, Location (quadrant number), path of image] is made into a logs csv file.
 
-## Architecture Diagram
+### Architecture Diagram
 
-
+![alt text](https://github.com/saigowri/Marauder-Map/blob/master/architecture.png)
 
 Essential components of Marauder&#39;s Map include –  
   1. Set of cameras placed strategically around the college campus  
@@ -52,10 +52,10 @@ Essential components of Marauder&#39;s Map include –
 The components interact with each other in the following way –  
   Live video is captured by the surveillance cameras and one frame is sent periodically (maybe every 10 seconds) to the shared folder from each camera. The facial recognition algorithm then picks these images and processes them to identify the unauthorized as well as registered people. The images are labelled with the name of the people if recognized else the person&#39;s face is boxed and labelled as &quot;unknown&quot;. These processed images are then put back into the shared folder from where the client interface displays them quadrant-wise. Any quadrant containing unknown people is colored RED to alert the security personnel. Then these images are transferred to the image server to be archived for 30 days. Parallelly, a log entry is made into a csv file (or database) for every unauthorized person where the timestamp, location in terms of quadrant number and image path is stored. Every 30 days, the log file (or database) and the image server are cleared.
 
-## Authentication and Authorization Problem  
+### Authentication and Authorization Problem  
    This application does not currently have any login. The shared folder used to store images is secured by providing access only to the security admin account. Login would be needed if a web-based GUI is developed.
 
-## Deployment Plan
+### Deployment Plan
 
 Step 1: Field Survey – The college campus needs to be surveyed to study the location at which cameras are placed and the coverage of the cameras. According to the above data, appropriate quadrants need to be designed such that maximum area of the college is under surveillance and not in a blind spot.  
 
@@ -72,7 +72,7 @@ Step 7: Further extension can be done for stray animals like dogs by training th
 
 **\* Application can be scaled easily by adding more cameras and hence, more quadrants for better tracking and identification.**
 
-# TIMELINE AND WORK DISTRIBUTION
+## TIMELINE AND WORK DISTRIBUTION
 For the real-time deployment of this application, we propose a 6-month plan keeping class schedules, tests and projects in mind.
 
 Month 1 –
