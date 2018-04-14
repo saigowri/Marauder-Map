@@ -1,4 +1,5 @@
-  (Mischief Managed)
+ # MARAUDER&#39;S MAP
+   (Mischief Managed)
 
 # PROBLEM STATEMENT
 Marauder&#39;s Map is a security surveillance system which uses image recognition to identify and track unauthorized personnel and stray animals around the college campus. It is built mainly to aid the college administration.
